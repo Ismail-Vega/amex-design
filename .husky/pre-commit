@@ -1,0 +1,7 @@
+# Custom pre-commit message
+echo "Running pre-commit checks..."
+
+npx lint-staged
+
+# Success message
+echo "Pre-commit checks passed successfully!"
