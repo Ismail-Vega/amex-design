@@ -1,8 +1,10 @@
-import { ReactNode } from 'react';
+import { ComponentProps, ReactElement, ReactNode } from 'react';
 
-export interface ModalProps {
+export interface ModalProps extends Omit<ComponentProps<'div'>, 'content'> {
   open?: boolean;
-  title: string;
-  children: ReactNode;
+  title?: string;
+  trailingIcon?: ReactElement;
+  content: ReactNode;
+  actions?: ReactElement;
   onClose?: () => void;
 }

@@ -4,7 +4,8 @@ import { ModalProps } from './ModalProps';
 
 const Modal = (props: ModalProps) => {
   const modalRef = useRef<HTMLDivElement>(null);
-  const { open, title, children, onClose } = props;
+  const { open, title, trailingIcon, content, actions, onClose, ...rest } =
+    props;
 
   const handleKeyDown = (event: React.KeyboardEvent) => {
     if (event.key !== 'Escape') {
@@ -42,28 +43,39 @@ const Modal = (props: ModalProps) => {
       className="fixed backdrop zIndex-modal flex align-center justify-center"
     >
       <div
+        ref={modalRef}
         role="dialog"
         tabIndex={-1}
-        ref={modalRef}
+        aria-modal="true"
         className="fixed modal"
         onKeyDown={handleKeyDown}
         onClick={handleModalClick}
+        aria-labelledby="modal-title"
+        aria-describedby="modal-description"
+        {...rest}
       >
-        <div className="modal-header-wrapper">
+        <div className="flex align-center justify-between">
           <h2 id="modal-title" className="modal-header">
             {title}
           </h2>
-
-          <button
-            onClick={onClose}
-            className="flex trailing-icon"
-            aria-label="close"
-          >
-            {'×'}
-          </button>
+          {trailingIcon ?? (
+            <button
+              onClick={onClose}
+              className="flex trailing-icon"
+              aria-label="close"
+            >
+              {'×'}
+            </button>
+          )}
         </div>
 
-        <div className="flex flex-col">{children}</div>
+        <div className="divider" />
+
+        <div className="flex flex-col justify-between">
+          <p id="modal-description">{content}</p>
+
+          <div className="flex justify-end">{actions}</div>
+        </div>
       </div>
     </div>,
     document.body,

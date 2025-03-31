@@ -15,20 +15,30 @@ function App() {
     setShowModal(false);
   };
 
+  const modalContent = `
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. In feugiat
+      elit in est interdum fermentum. Cras vehicula a urna sit amet auctor.
+      Mauris tempor magna a imperdiet posuere. Quisque quis malesuada felis,
+      sit amet commodo mi. Vestibulum finibus suscipit porta. Donec a enim
+      ac eros pellentesque efficitur. In ut ex enim. Cras lacinia quam id
+      urna dapibus, a consequat mauris posuere. Etiam sed erat quis lacus
+      condimentum viverra scelerisque sit amet elit. Mauris eget nunc
+      sagittis, dapibus risus pharetra, placerat neque. Maecenas tristique
+      risus lorem.
+    `;
+  const modalActions = (
+    <button onClick={handleClose} aria-label="accept">
+      I Accept
+    </button>
+  );
   const modal = (
-    <Modal open={showModal} title="This is a modal title" onClose={handleClose}>
-      <p>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. In feugiat elit
-        in est interdum fermentum. Cras vehicula a urna sit amet auctor. Mauris
-        tempor magna a imperdiet posuere. Quisque quis malesuada felis, sit amet
-        commodo mi. Vestibulum finibus suscipit porta. Donec a enim ac eros
-        pellentesque efficitur. In ut ex enim. Cras lacinia quam id urna
-        dapibus, a consequat mauris posuere. Etiam sed erat quis lacus
-        condimentum viverra scelerisque sit amet elit. Mauris eget nunc
-        sagittis, dapibus risus pharetra, placerat neque. Maecenas tristique
-        risus lorem.
-      </p>
-    </Modal>
+    <Modal
+      open={showModal}
+      onClose={handleClose}
+      actions={modalActions}
+      content={modalContent}
+      title="This is a heading title"
+    />
   );
 
   return (

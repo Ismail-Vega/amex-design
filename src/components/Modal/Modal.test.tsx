@@ -19,9 +19,17 @@ describe('Modal', () => {
   };
 
   const TestModalComp = () => (
-    <Modal open={true} title="This is a test title" onClose={mockClose}>
-      <p id="modal-description">This is a test description</p>
-    </Modal>
+    <Modal
+      open={true}
+      onClose={mockClose}
+      actions={
+        <button type="button" onClick={mockClose}>
+          I accept
+        </button>
+      }
+      title="This is a heading title"
+      content="This is a test description"
+    />
   );
 
   test('renders modal with expected controls', () => {
