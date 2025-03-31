@@ -40,3 +40,62 @@
 .read-the-docs {
   color: #888;
 }
+
+.fixed {
+  position: fixed;
+}
+
+.backdrop {
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(107, 105, 105, 0.8);
+}
+
+.zIndex-modal {
+  z-index: 999;
+}
+
+.flex {
+  display: flex;
+}
+
+.flex-col {
+  flex-direction: column;
+}
+
+.align-center {
+  align-items: center;
+}
+
+.justify-center {
+  justify-content: center;
+}
+
+.modal {
+  width: 90%;
+  padding: 1em;
+  max-width: 500px;
+  background-color: #242424;
+}
+
+.modal-header-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.trailing-icon {
+  width: 36px;
+  height: 36px;
+  padding: 0;
+  border: none;
+  font-size: 36px;
+  margin-left: auto;
+  align-items: center;
+  justify-content: center;
+  background-color: transparent;
+}
